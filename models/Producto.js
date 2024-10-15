@@ -5,7 +5,7 @@ let schema = new Schema({
     nombre: { type: String, required: true },
     marca: { type: String, required: true },
     tipo: { type: String, required: true },
-    precio: { type: String, required: true }
+    precio: { type: Number, required: true }
 }, {
     timestamps: true
 });

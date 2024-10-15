@@ -1,5 +1,6 @@
 import Tienda from '../models/Tienda.js';
 
+// endpoint para obtener todos los nombres de las tiendas
 export const getAllTiendas = async (req, res) => {
   try {
     const tiendas = await Tienda.find();
@@ -9,6 +10,7 @@ export const getAllTiendas = async (req, res) => {
   }
 };
 
+// endpoint para obtener una dirección de una tienda
 export const getTiendaPorDireccion = async (req, res) => {
   try {
     const tienda = await Tienda.findOne({ direccion: req.params.direccion });
@@ -21,6 +23,7 @@ export const getTiendaPorDireccion = async (req, res) => {
   }
 };
 
+//endpoint para obtener un nombre de una tienda
 export const getTiendaPorNombre = async (req, res) => {
   try {
     const tienda = await Tienda.findOne({ nombre: req.params.nombre });

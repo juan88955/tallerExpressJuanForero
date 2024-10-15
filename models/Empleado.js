@@ -1,5 +1,7 @@
 import { Schema, model } from 'mongoose';
 
+
+// Definir esquema del modelo
 let collection = 'empleados';
 let schema = new Schema({
     nombre: { type: String, required: true },
@@ -9,5 +11,6 @@ let schema = new Schema({
     timestamps: true
 });
 
+// Crear modelo
 let Empleado = model(collection, schema);
 export default Empleado;

@@ -1,5 +1,6 @@
 import Producto from '../models/Producto.js';
 
+// endpoint para obtener todos los productos
 export const getAllProductos = async (req, res) => {
     try {
         const productos = await Producto.find();
@@ -9,6 +10,7 @@ export const getAllProductos = async (req, res) => {
     }
 };
 
+//endpoint para obtener un producto por su nombre
 export const getProductoPorNombre = async (req, res) => {
     try {
         const producto = await Producto.findOne({ nombre: req.params.nombre });
@@ -21,6 +23,7 @@ export const getProductoPorNombre = async (req, res) => {
     }
 };
 
+//endpoint para obtener todos los productos de una marca
 export const getProductosPorMarca = async (req, res) => {
     try {
         const productos = await Producto.find({ marca: req.params.marca });

@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 
+// Definir esquema del modelo
 let collection = 'tiendas';
 let schema = new Schema({
     nombre: { type: String, required: true },
@@ -9,5 +10,6 @@ let schema = new Schema({
     timestamps: true
 });
 
+// Crear modelo
 let Tienda = model(collection, schema);
 export default Tienda;

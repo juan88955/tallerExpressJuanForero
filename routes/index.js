@@ -5,6 +5,7 @@ import empleadoRoutes from './empleadoRoutes.js';
 
 const router = express.Router();
 
+// Rutas de la API
 router.use('/tiendas', tiendaRoutes);
 router.use('/productos', productoRoutes);
 router.use('/empleados', empleadoRoutes);

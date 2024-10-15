@@ -3,13 +3,14 @@ import '../../config/database.js'
 import Tienda from '../Tienda.js'
 
 let tiendas = [
-    { nombre: 'Tienda A', direccion: 'Calle 1 #123', telefono: 1234567890 },
-    { nombre: 'Tienda B', direccion: 'Avenida 2 #456', telefono: 2345678901 },
-    { nombre: 'Tienda C', direccion: 'Carrera 3 #789', telefono: 3456789012 },
-    { nombre: 'Tienda D', direccion: 'Plaza 4 #012', telefono: 4567890123 },
-    { nombre: 'Tienda E', direccion: 'Bulevar 5 #345', telefono: 5678901234 }
+    { nombre: 'Éxito', direccion: 'Av. Carrera 68 #75-50, Bogotá', telefono: 6015942000 },
+    { nombre: 'Jumbo', direccion: 'Calle 80 #60-1, Bogotá', telefono: 6014845000 },
+    { nombre: 'Carulla', direccion: 'Cra. 9 #122-29, Bogotá', telefono: 6017445555 },
+    { nombre: 'Falabella', direccion: 'Centro Comercial Santa Fe, Bogotá', telefono: 6017422410 },
+    { nombre: 'Homecenter', direccion: 'Calle 170 #72-50, Bogotá', telefono: 6013077115 }
 ];
 
+// Insertar datos en la base de datos
 Tienda.insertMany(tiendas)
     .then(() => {
         console.log('Datos de tiendas insertados correctamente');

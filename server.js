@@ -5,10 +5,13 @@ import cors from 'cors';
 import morgan from 'morgan';
 import indexRouter from './routes/index.js';
 
+// Configuración del servidor
 const server = express();
 
+// Configuración de puerto
 const PORT = process.env.PORT || 8080;
 
+// Callback para mostrar mensaje de inicio
 const ready = () => console.log("Server ready on port: " + PORT);
 
 // Middleware
