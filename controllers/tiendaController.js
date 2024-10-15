@@ -13,7 +13,8 @@ export const getAllTiendas = async (req, res) => {
 // endpoint para obtener una dirección de una tienda
 export const getTiendaPorDireccion = async (req, res) => {
   try {
-    const tienda = await Tienda.findOne({ direccion: req.params.direccion });
+    const direccionDecodificada = decodeURIComponent(req.params.direccion);
+    const tienda = await Tienda.findOne({ direccion: direccionDecodificada });
     if (!tienda) {
       return res.status(404).json({ message: 'Tienda no encontrada' });
     }
