@@ -41,4 +41,3 @@ server.use((err, req, res, next) => {
 
 server.listen(PORT, ready);
 
-export default server;

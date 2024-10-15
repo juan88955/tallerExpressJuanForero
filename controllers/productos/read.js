@@ -1,7 +1,7 @@
-import Producto from '../models/Producto.js';
+import Producto from '../../models/Producto.js';
 
 // endpoint para obtener todos los productos
-export const getAllProductos = async (req, res) => {
+const getAllProductos = async (req, res) => {
     try {
         const productos = await Producto.find();
         res.json(productos);
@@ -11,7 +11,7 @@ export const getAllProductos = async (req, res) => {
 };
 
 //endpoint para obtener un producto por su nombre
-export const getProductoPorNombre = async (req, res) => {
+const getProductoPorNombre = async (req, res) => {
     try {
         const producto = await Producto.findOne({ nombre: req.params.nombre });
         if (!producto) {
@@ -24,7 +24,7 @@ export const getProductoPorNombre = async (req, res) => {
 };
 
 //endpoint para obtener todos los productos de una marca
-export const getProductosPorMarca = async (req, res) => {
+const getProductosPorMarca = async (req, res) => {
     try {
         const productos = await Producto.find({ marca: req.params.marca });
         res.json(productos);
@@ -32,3 +32,5 @@ export const getProductosPorMarca = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+export { getAllProductos, getProductoPorNombre, getProductosPorMarca };

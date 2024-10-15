@@ -1,7 +1,7 @@
-import Empleado from '../models/Empleado.js';
+import Empleado from '../../models/Empleado.js';
 
 // endpoint: /api/empleados
-export const getAllEmpleados = async (req, res) => {
+const getAllEmpleados = async (req, res) => {
     try {
         const empleados = await Empleado.find();
         res.json(empleados);
@@ -11,7 +11,7 @@ export const getAllEmpleados = async (req, res) => {
 };
 
 // endpoint: /api/empleados/nombre/:nombre
-export const getEmpleadoPorNombre = async (req, res) => {
+const getEmpleadoPorNombre = async (req, res) => {
     try {
         const empleado = await Empleado.findOne({ nombre: req.params.nombre });
         if (!empleado) {
@@ -24,7 +24,7 @@ export const getEmpleadoPorNombre = async (req, res) => {
 };
 
 // endpoint: /api/empleados/cargo/:cargo
-export const getEmpleadosPorCargo = async (req, res) => {
+const getEmpleadosPorCargo = async (req, res) => {
     try {
         const empleados = await Empleado.find({ cargo: req.params.cargo });
         res.json(empleados);
@@ -32,3 +32,5 @@ export const getEmpleadosPorCargo = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+export { getAllEmpleados, getEmpleadoPorNombre, getEmpleadosPorCargo };
