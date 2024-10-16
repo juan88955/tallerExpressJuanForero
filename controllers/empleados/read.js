@@ -1,7 +1,7 @@
 import Empleado from '../../models/Empleado.js';
 
 // endpoint: /api/empleados
-const getAllEmpleados = async (req, res) => {
+let getAllEmpleados = async (req, res) => {
     try {
         const empleados = await Empleado.find();
         res.json(empleados);
@@ -11,7 +11,7 @@ const getAllEmpleados = async (req, res) => {
 };
 
 // endpoint: /api/empleados/nombre/:nombre
-const getEmpleadoPorNombre = async (req, res) => {
+let getEmpleadoPorNombre = async (req, res) => {
     try {
         const empleado = await Empleado.findOne({ nombre: req.params.nombre });
         if (!empleado) {
@@ -24,7 +24,7 @@ const getEmpleadoPorNombre = async (req, res) => {
 };
 
 // endpoint: /api/empleados/cargo/:cargo
-const getEmpleadosPorCargo = async (req, res) => {
+let getEmpleadosPorCargo = async (req, res) => {
     try {
         const empleados = await Empleado.find({ cargo: req.params.cargo });
         res.json(empleados);

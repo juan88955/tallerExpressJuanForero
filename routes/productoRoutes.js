@@ -1,11 +1,14 @@
-import express from 'express';
-import * as productoController from '../controllers/productos/read.js';
+import { Router } from 'express';
+import { getAllProductos, getProductoPorNombre, getProductosPorMarca } from '../controllers/productos/read.js';
+import { create, createMany } from '../controllers/productos/create.js';
 
-const router = express.Router();
+const router = Router()
 
-// Rutas de la API
-router.get('/', productoController.getAllProductos);
-router.get('/nombre/:nombre', productoController.getProductoPorNombre);
-router.get('/marca/:marca', productoController.getProductosPorMarca);
+// rutas de la API
+router.get('/all', getAllProductos)
+router.get('/nombre/:nombre', getProductoPorNombre)
+router.get('/marca/:marca', getProductosPorMarca)
+router.post('/create', create)
+router.post('/createMany', createMany)
 
-export default router;
+export default router

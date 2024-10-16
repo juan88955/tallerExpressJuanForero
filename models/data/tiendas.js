@@ -2,6 +2,7 @@ import "dotenv/config.js";
 import '../../config/database.js'
 import Tienda from '../Tienda.js'
 
+// array de tiendas
 let tiendas = [
     { nombre: 'Éxito', direccion: 'Av. Carrera 68 #75-50, Bogotá', telefono: 6015942000 },
     { nombre: 'Jumbo', direccion: 'Calle 80 #60-1, Bogotá', telefono: 6014845000 },

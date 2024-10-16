@@ -2,6 +2,7 @@ import "dotenv/config.js";
 import '../../config/database.js'
 import Producto from '../Producto.js'
 
+// array de productos
 let productos = [
     {
         nombre: "Smartphone Galaxy S21",

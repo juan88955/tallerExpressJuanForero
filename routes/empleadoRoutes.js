@@ -1,11 +1,14 @@
-import express from 'express';
-import * as empleadoController from '../controllers/empleados/read.js';
+import { Router } from 'express';
+import { getAllEmpleados, getEmpleadoPorNombre, getEmpleadosPorCargo } from '../controllers/empleados/read.js';
+import { createEmpleado, createManyEmpleados } from '../controllers/empleados/create.js';
 
-const router = express.Router();
+const router = Router()
 
-// Rutas de la API
-router.get('/', empleadoController.getAllEmpleados);
-router.get('/nombre/:nombre', empleadoController.getEmpleadoPorNombre);
-router.get('/cargo/:cargo', empleadoController.getEmpleadosPorCargo);
+// rutas de la API
+router.get('/all', getAllEmpleados)
+router.get('/nombre/:nombre', getEmpleadoPorNombre)
+router.get('/cargo/:cargo', getEmpleadosPorCargo)
+router.post('/create', createEmpleado)
+router.post('/createMany', createManyEmpleados)
 
-export default router;
+export default router

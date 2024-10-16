@@ -2,6 +2,7 @@ import "dotenv/config.js";
 import '../../config/database.js'
 import Empleado from '../Empleado.js'
 
+//array de empleados
 let empleados = [
     { nombre: "Carolina Pérez", cargo: "Gerente General", salario: 7000 },
     { nombre: "Felipe Gómez", cargo: "Director Financiero", salario: 6300 },
