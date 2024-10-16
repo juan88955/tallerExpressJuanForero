@@ -12,12 +12,12 @@ let tiendas = [
 ];
 
 // Insertar datos en la base de datos
-Tienda.insertMany(tiendas)
+Tienda.insertMany(tiendas) // insertar datos en la colección tiendas
     .then(() => {
-        console.log('Datos de tiendas insertados correctamente');
+        console.log('Datos de tiendas insertados correctamente'); // mensaje de exito
         process.exit(0);
     })
     .catch(error => {
-        console.error('Error al insertar datos de tiendas:', error);
+        console.error('Error al insertar datos de tiendas:', error); // mensaje de error
         process.exit(1);
     });

@@ -15,29 +15,14 @@ const PORT = process.env.PORT || 8080;
 const ready = () => console.log("Server ready on port: " + PORT);
 
 // Middleware
-server.use(express.json());
-server.use(express.urlencoded({ extended: true }));
-server.use(cors());
-server.use(morgan('dev'));
+server.use(express.json()); //permite que los datos enviados sean en formato json
+server.use(express.urlencoded({ extended: true })); // permite trabajar con URL en entrada y salida
+server.use(cors()); // permite el uso de CORS
+server.use(morgan('dev')); // registrar las peticiones en el servidor
 
-// Rutas
+// Router de la API
 server.use('/api', indexRouter);
 
-// Ruta de prueba
-server.get('/', (req, res) => {
-    res.send('Taller Express API is running');
-});
-
-// Manejo de rutas no encontradas
-server.use((req, res) => {
-    res.status(404).json({ message: 'Route not found' });
-});
-
-// Manejo de errores global
-server.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ message: 'Something went wrong!' });
-});
 
 server.listen(PORT, ready);
 

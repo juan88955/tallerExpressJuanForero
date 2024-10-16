@@ -5,10 +5,10 @@ import { createEmpleado, createManyEmpleados } from '../controllers/empleados/cr
 const router = Router()
 
 // rutas de la API
-router.get('/all', getAllEmpleados)
-router.get('/nombre/:nombre', getEmpleadoPorNombre)
-router.get('/cargo/:cargo', getEmpleadosPorCargo)
-router.post('/create', createEmpleado)
-router.post('/createMany', createManyEmpleados)
+router.get('/all', getAllEmpleados) // endpoint: /api/empleados
+router.get('/nombre/:nombre', getEmpleadoPorNombre) // endpoint: /api/empleados/nombre/:nombre
+router.get('/cargo/:cargo', getEmpleadosPorCargo) // endpoint: /api/empleados/cargo/:cargo
+router.post('/create', createEmpleado) // endpoint: /api/empleados/create
+router.post('/createMany', createManyEmpleados) // endpoint: /api/empleados/createMany
 
 export default router

@@ -22,12 +22,12 @@ let empleados = [
 ];
 
 // Insertar datos en la base de datos
-Empleado.insertMany(empleados)
+Empleado.insertMany(empleados) // insertar datos en la colección empleados
     .then(() => {
-        console.log('Datos de empleados insertados correctamente');
+        console.log('Datos de empleados insertados correctamente'); // mensaje de exito
         process.exit(0);
     })
     .catch(error => {
-        console.error('Error al insertar datos de empleados:', error);
+        console.error('Error al insertar datos de empleados:', error); // mensaje de error
         process.exit(1);
     });

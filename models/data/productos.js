@@ -619,12 +619,12 @@ let productos = [
 ];
 
 // Insertar datos en la base de datos
-Producto.insertMany(productos)
+Producto.insertMany(productos) // insertar datos en la colección productos
     .then(() => {
-        console.log('Datos de productos insertados correctamente');
+        console.log('Datos de productos insertados correctamente'); // mensaje de exito
         process.exit(0);
     })
     .catch(error => {
-        console.error('Error al insertar datos de productos:', error);
+        console.error('Error al insertar datos de productos:', error); // mensaje de error
         process.exit(1);
     });

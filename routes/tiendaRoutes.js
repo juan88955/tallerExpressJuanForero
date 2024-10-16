@@ -5,10 +5,10 @@ import { createTienda, createManyTiendas } from '../controllers/tiendas/create.j
 const router = Router()
 
 // rutas de la API
-router.get('/all', getAllTiendas)
-router.get('/direccion/:direccion', getTiendaPorDireccion)
-router.get('/nombre/:nombre', getTiendaPorNombre)
-router.post('/create', createTienda)
-router.post('/createMany', createManyTiendas)
+router.get('/all', getAllTiendas) // endpoint: /api/tiendas
+router.get('/direccion/:direccion', getTiendaPorDireccion) // endpoint: /api/tiendas/direccion/:direccion
+router.get('/nombre/:nombre', getTiendaPorNombre) // endpoint: /api/tiendas/nombre/:nombre
+router.post('/create', createTienda) // endpoint: /api/tiendas/create
+router.post('/createMany', createManyTiendas) // endpoint: /api/tiendas/createMany
 
 export default router
