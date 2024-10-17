@@ -1,18 +1,18 @@
 import Empleado from "../../models/Empleado.js";
 
 // crear un solo empleado
-let createEmpleado = async (req, res) => {
+let createEmployee = async (req, res, next) => {
     try {
         let empleado = req.body;
         let newEmpleado = await Empleado.create(empleado);
         res.status(201).json(newEmpleado);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 // crear múltiples empleados
-let createManyEmpleados = async (req, res) => {
+let createManyEmployees = async (req, res, next) => {
     try {
         let empleados = req.body;
 
@@ -23,8 +23,8 @@ let createManyEmpleados = async (req, res) => {
         let newEmpleados = await Empleado.insertMany(empleados);
         res.status(201).json(newEmpleados);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
-export { createEmpleado, createManyEmpleados };
+export {createEmployee, createManyEmployees}

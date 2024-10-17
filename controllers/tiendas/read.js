@@ -1,17 +1,17 @@
 import Tienda from '../../models/Tienda.js';
 
 // endpoint para obtener todos los nombres de las tiendas
-let getAllTiendas = async (req, res) => {
+let getAllStores= async (req, res, next) => {
     try {
         let tiendas = await Tienda.find();
         res.json(tiendas);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 // endpoint para obtener una dirección de una tienda
-let getTiendaPorDireccion = async (req, res) => {
+let getStoreByAddress = async (req, res, next) => {
     try {
         let direccionDecodificada = decodeURIComponent(req.params.direccion);
         let tienda = await Tienda.findOne({ direccion: direccionDecodificada });
@@ -20,12 +20,12 @@ let getTiendaPorDireccion = async (req, res) => {
         }
         res.json(tienda);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 //endpoint para obtener un nombre de una tienda
-let getTiendaPorNombre = async (req, res) => {
+let getStoreByName = async (req, res, next) => {
     try {
         let tienda = await Tienda.findOne({ nombre: req.params.nombre });
         if (!tienda) {
@@ -33,8 +33,8 @@ let getTiendaPorNombre = async (req, res) => {
         }
         res.json(tienda);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
-export { getAllTiendas, getTiendaPorDireccion, getTiendaPorNombre };
+export { getAllStores, getStoreByAddress, getStoreByName }

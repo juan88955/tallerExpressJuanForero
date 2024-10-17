@@ -1,18 +1,18 @@
 import Tienda from "../../models/Tienda.js";
 
 // crear una sola tienda
-let createTienda = async (req, res) => {
+let createStore = async (req, res, next) => {
     try {
         let tienda = req.body;
         let newTienda = await Tienda.create(tienda);
         res.status(201).json(newTienda);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 // crear múltiples tiendas
-let createManyTiendas = async (req, res) => {
+let createManyStores = async (req, res, next) => {
     try {
         let tiendas = req.body;
 
@@ -23,8 +23,8 @@ let createManyTiendas = async (req, res) => {
         let newTiendas = await Tienda.insertMany(tiendas);
         res.status(201).json(newTiendas);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
-export { createTienda, createManyTiendas };
+export {createStore, createManyStores}

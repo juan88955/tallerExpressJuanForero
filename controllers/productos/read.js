@@ -1,17 +1,17 @@
 import Producto from '../../models/Producto.js';
 
 // endpoint para obtener todos los productos
-let getAllProductos = async (req, res) => {
+let getAllProducts = async (req, res, next) => {
     try {
         let productos = await Producto.find();
         res.json(productos);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 //endpoint para obtener un producto por su nombre
-let getProductoPorNombre = async (req, res) => {
+let getProductByName = async (req, res, next) => {
     try {
         let producto = await Producto.findOne({ nombre: req.params.nombre });
         if (!producto) {
@@ -19,18 +19,18 @@ let getProductoPorNombre = async (req, res) => {
         }
         res.json(producto);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        req, res, next
     }
 };
 
 //endpoint para obtener todos los productos de una marca
-let getProductosPorMarca = async (req, res) => {
+let getProductsByBrand = async (req, res, next) => {
     try {
         let productos = await Producto.find({ marca: req.params.marca });
         res.json(productos);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
-export { getAllProductos, getProductoPorNombre, getProductosPorMarca };
+export { getAllProducts, getProductByName, getProductsByBrand };

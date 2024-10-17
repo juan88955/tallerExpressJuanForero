@@ -1,18 +1,18 @@
 import Producto from "../../models/Producto.js";
 
 // crear un solo producto
-let create = async (req, res) => {
+let createProduct = async (req, res, next) => {
     try {
         let producto = req.body;
         let newProducto = await Producto.create(producto);
         res.status(201).json(newProducto);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 // crear múltiples productos
-let createMany = async (req, res) => {
+let createManyProducts = async (req, res, next) => {
     try {
         let productos = req.body;
 
@@ -23,8 +23,8 @@ let createMany = async (req, res) => {
         let newProductos = await Producto.insertMany(productos);
         res.status(201).json(newProductos);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
-export { create, createMany };
+export { createProduct, createManyProducts };

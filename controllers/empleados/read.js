@@ -1,17 +1,17 @@
 import Empleado from '../../models/Empleado.js';
 
 // endpoint: /api/empleados
-let getAllEmpleados = async (req, res) => {
+let getAllEmployees = async (req, res, next) => {
     try {
         let empleados = await Empleado.find();
         res.json(empleados);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 // endpoint: /api/empleados/nombre/:nombre
-let getEmpleadoPorNombre = async (req, res) => {
+let getEmployeeByName = async (req, res, next) => {
     try {
         let empleado = await Empleado.findOne({ nombre: req.params.nombre });
         if (!empleado) {
@@ -19,18 +19,18 @@ let getEmpleadoPorNombre = async (req, res) => {
         }
         res.json(empleado);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
 // endpoint: /api/empleados/cargo/:cargo
-let getEmpleadosPorCargo = async (req, res) => {
+let getEmployeesByPosition = async (req, res, next) => {
     try {
         let empleados = await Empleado.find({ cargo: req.params.cargo });
         res.json(empleados);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        next(error)
     }
 };
 
-export { getAllEmpleados, getEmpleadoPorNombre, getEmpleadosPorCargo };
+export { getAllEmployees, getEmployeeByName, getEmployeesByPosition };

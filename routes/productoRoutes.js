@@ -1,14 +1,14 @@
 import { Router } from 'express';
-import { getAllProductos, getProductoPorNombre, getProductosPorMarca } from '../controllers/productos/read.js';
-import { create, createMany } from '../controllers/productos/create.js';
+import { getAllProducts, getProductByName, getProductsByBrand } from '../controllers/productos/read.js';
+import { createManyProducts, createProduct } from '../controllers/productos/create.js';
 
 const router = Router()
 
 // rutas de la API
-router.get('/all', getAllProductos) // endpoint: /api/productos
-router.get('/nombre/:nombre', getProductoPorNombre) // endpoint: /api/productos/nombre/:nombre
-router.get('/marca/:marca', getProductosPorMarca) // endpoint: /api/productos/marca/:marca
-router.post('/create', create) // endpoint: /api/productos/create
-router.post('/createMany', createMany) // endpoint: /api/productos/createMany
+router.get('/all', getAllProducts) // endpoint: /api/productos
+router.get('/nombre/:nombre', getProductByName) // endpoint: /api/productos/nombre/:nombre
+router.get('/marca/:marca', getProductsByBrand) // endpoint: /api/productos/marca/:marca
+router.post('/create', createProduct) // endpoint: /api/productos/create
+router.post('/createMany', createManyProducts) // endpoint: /api/productos/createMany
 
 export default router

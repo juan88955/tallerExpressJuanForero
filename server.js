@@ -4,6 +4,9 @@ import './config/database.js';
 import cors from 'cors';
 import morgan from 'morgan';
 import indexRouter from './routes/index.js';
+import not_found_handler from './middlewares/not_found_handler.js';
+import castError_handler from './middlewares/castError_handler.js';
+import error_handler from './middlewares/error_handler.js';
 
 // Configuración del servidor
 const server = express();
@@ -12,17 +15,20 @@ const server = express();
 const PORT = process.env.PORT || 8080;
 
 // Callback para mostrar mensaje de inicio
-const ready = () => console.log("Server ready on port: " + PORT);
+const ready = () => console.log("Servidor listo en el puerto: " + PORT);
 
 // Middleware
-server.use(express.json()); //permite que los datos enviados sean en formato json
-server.use(express.urlencoded({ extended: true })); // permite trabajar con URL en entrada y salida
-server.use(cors()); // permite el uso de CORS
-server.use(morgan('dev')); // registrar las peticiones en el servidor
+server.use(express.json());
+server.use(express.urlencoded({ extended: true }));
+server.use(cors());
+server.use(morgan('dev'));
 
 // Router de la API
 server.use('/api', indexRouter);
 
+// Manejadores de errores
+server.use(not_found_handler); // manejador de errores 404
+server.use(castError_handler); // manejador de errores 400
+server.use(error_handler); // manejador de errores 500 (general)
 
 server.listen(PORT, ready);
-
