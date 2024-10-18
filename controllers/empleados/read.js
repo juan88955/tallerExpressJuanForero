@@ -1,6 +1,6 @@
 import Empleado from '../../models/Empleado.js';
 
-// endpoint: /api/empleados
+// endpoint para obtener todos los empleados api/empleados/all
 let getAllEmployees = async (req, res, next) => {
     try {
         let empleados = await Empleado.find();
@@ -10,7 +10,7 @@ let getAllEmployees = async (req, res, next) => {
     }
 };
 
-// endpoint: /api/empleados/nombre/:nombre
+// endpoint para obtener un empleado por su nombre api/empleados/nombre/:nombre
 let getEmployeeByName = async (req, res, next) => {
     try {
         let empleado = await Empleado.findOne({ nombre: req.params.nombre });
@@ -23,10 +23,13 @@ let getEmployeeByName = async (req, res, next) => {
     }
 };
 
-// endpoint: /api/empleados/cargo/:cargo
+// endpoint para obtener todos los empleados de un cargo api/empleados/cargo/:cargo
 let getEmployeesByPosition = async (req, res, next) => {
     try {
         let empleados = await Empleado.find({ cargo: req.params.cargo });
+        if (empleados.length === 0) {
+            return res.status(404).json({ message: "No se encontraron empleados con este cargo" });
+        }
         res.json(empleados);
     } catch (error) {
         next(error)

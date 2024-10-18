@@ -17,7 +17,7 @@ let createManyProducts = async (req, res, next) => {
         let productos = req.body;
 
         if (!Array.isArray(productos)) {
-            return res.status(400).json({ message: "Se espera un array de productos" }); // mensaje de error que se espera un array de productos
+            return res.status(400).json({ message: "Se espera un array de varios productos" }); // mensaje de error que se espera un array de productos
         }
 
         let newProductos = await Producto.insertMany(productos);

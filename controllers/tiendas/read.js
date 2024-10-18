@@ -1,6 +1,6 @@
 import Tienda from '../../models/Tienda.js';
 
-// endpoint para obtener todos los nombres de las tiendas
+// endpoint para obtener todos los nombres de las tiendas api/tiendas/all
 let getAllStores= async (req, res, next) => {
     try {
         let tiendas = await Tienda.find();
@@ -10,7 +10,7 @@ let getAllStores= async (req, res, next) => {
     }
 };
 
-// endpoint para obtener una dirección de una tienda
+// endpoint para obtener una dirección de una tienda api/tiendas/direccion/:direccion
 let getStoreByAddress = async (req, res, next) => {
     try {
         let direccionDecodificada = decodeURIComponent(req.params.direccion);
@@ -24,7 +24,7 @@ let getStoreByAddress = async (req, res, next) => {
     }
 };
 
-//endpoint para obtener un nombre de una tienda
+//endpoint para obtener un nombre de una tienda api/tiendas/nombre/:nombre
 let getStoreByName = async (req, res, next) => {
     try {
         let tienda = await Tienda.findOne({ nombre: req.params.nombre });

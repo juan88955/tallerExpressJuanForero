@@ -17,7 +17,7 @@ let createManyEmployees = async (req, res, next) => {
         let empleados = req.body;
 
         if (!Array.isArray(empleados)) {
-            return res.status(400).json({ message: "Se espera un array de empleados" }); // mensaje de error que se espera un array de empleados
+            return res.status(400).json({ message: "Se espera un array de varios empleados" }); // mensaje de error que se espera un array de empleados
         }
 
         let newEmpleados = await Empleado.insertMany(empleados);

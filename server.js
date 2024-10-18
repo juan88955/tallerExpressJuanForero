@@ -26,9 +26,9 @@ server.use(morgan('dev'));
 // Router de la API
 server.use('/api', indexRouter);
 
-// Manejadores de errores
+// Manejador de errores
 server.use(not_found_handler); // manejador de errores 404
-server.use(validationErrorHandler); // manejador de errores de validación
+server.use(validationErrorHandler); // manejador de errores de validación 400
 server.use(error_handler); // manejador de errores 500 (general)
 
 // Función de inicio del servidor

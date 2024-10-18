@@ -17,7 +17,7 @@ let createManyStores = async (req, res, next) => {
         let tiendas = req.body;
 
         if (!Array.isArray(tiendas)) {
-            return res.status(400).json({ message: "Se espera un array de tiendas" }); // mensaje de error que se espera un array de tiendas
+            return res.status(400).json({ message: "Se espera un array de varias tiendas" }); // mensaje de error que se espera un array de tiendas
         }
 
         let newTiendas = await Tienda.insertMany(tiendas);
