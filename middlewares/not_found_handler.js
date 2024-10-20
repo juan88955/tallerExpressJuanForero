@@ -6,4 +6,4 @@ const not_found_handler = (req, res, next) => {
     })
 }
 
-export default not_found_handler
+export default not_found_handler;

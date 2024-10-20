@@ -13,7 +13,7 @@ const validationErrorHandler = (err, req, res, next) => {
     }
 
     // Si no es un error de validación, pasa el error al siguiente middleware
-    next(error);
+    next(err);
 };
 
 export default validationErrorHandler;
